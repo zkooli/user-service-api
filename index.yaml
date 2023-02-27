@@ -1,3 +1,14 @@
 apiVersion: v1
-entries: {}
-generated: "2023-02-27T21:05:07.139756+01:00"
+entries:
+  user-service-api-chart:
+  - apiVersion: v2
+    appVersion: 0.0.7
+    created: "2023-02-27T21:16:47.861306231Z"
+    description: Chart for my user service
+    digest: 6cbe92339387a2854edd9aab479b456541e40da3c7f729b56b2127f27ca18784
+    name: user-service-api-chart
+    type: application
+    urls:
+    - https://github.com/zkooli/user-service-api/releases/download/user-service-api-chart-0.0.7/user-service-api-chart-0.0.7.tgz
+    version: 0.0.7
+generated: "2023-02-27T21:16:47.861311031Z"
