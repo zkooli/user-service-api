@@ -65,7 +65,7 @@ jobs:
 
       - name: Run chart-releaser
         # switch back to helm/chart-releaser-action if this contribution is ever merged
-        uses: helm/chart-releaser-action@skip-packaging-option
+        uses: askcloudarchitech/chart-releaser-action@skip-packaging-option
         with:
           skip_packaging: true
         env:
