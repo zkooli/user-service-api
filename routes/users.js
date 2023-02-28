@@ -3,7 +3,12 @@ import { v4 } from "uuid";
 
 const router = express.Router();
 
-let users = [];
+let users = [
+  {
+    firstName : "Zied",
+    lastName : "KOOLI"
+  }
+];
 
 router.get("/", (req, res) => {
   console.log(users);
