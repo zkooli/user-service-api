@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:3.16-alpine
 WORKDIR /app
 #caching
 ADD package*.json ./
