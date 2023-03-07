@@ -1,10 +1,10 @@
 import express from "express";
 import bodyParser from "body-parser";
-import dotEnv from "dotEnv";
+import dotenv from "dotenv";
 import userRoutes from "./routes/users.js";
-
 import { MongoClient } from "mongodb";
-dotEnv.config();
+
+dotenv.config();
 
 const connectionString = process.env.DB_URL || "";
 
