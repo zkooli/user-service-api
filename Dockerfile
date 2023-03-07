@@ -4,6 +4,6 @@ WORKDIR /app
 # ADD package*.json ./
 # RUN npm install
 #end caching
-ADD . .
+COPY . .
 RUN npm install
 CMD node index.js
