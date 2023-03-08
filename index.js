@@ -16,7 +16,7 @@ try {
 } catch (e) {
   console.error(e);
 }
-let db = conn.db("sample_training");
+const db = conn.db("carpooling");
 
 const app = express();
 const PORT = 5000;
