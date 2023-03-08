@@ -10,6 +10,11 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
+mongoDB:
+  url: test
+  user: test
+  password: test 
+  
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
