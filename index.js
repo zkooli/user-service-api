@@ -16,12 +16,20 @@ try {
 } catch (e) {
   console.error(e);
 }
+let db = conn.db("sample_training");
 
 const app = express();
 const PORT = 5000;
 
 app.use(bodyParser.json());
 app.use("/users", userRoutes);
+
+app.get("/test", async (req, res) => {
+  let collection = await db.collection("user");
+  let results = await collection.find({}).limit(50).toArray();
+
+  res.send(results).status(200);
+});
 
 app.listen(PORT, () => {
   console.log(`Server  is running on port http://localhost:${PORT}`);
