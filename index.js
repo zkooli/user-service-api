@@ -16,7 +16,7 @@ try {
 } catch (e) {
   console.error(e);
 }
-const db = conn.db("carpooling");
+const db = client.db("carpooling");
 
 const app = express();
 const PORT = 5000;
@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.use("/users", userRoutes);
 
 app.get("/test", async (req, res) => {
-  let collection = await db.collection("user");
+  let collection = db.collection("user");
   let results = await collection.find({}).limit(50).toArray();
 
   res.send(results).status(200);
