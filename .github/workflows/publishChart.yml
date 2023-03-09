@@ -22,7 +22,8 @@ jobs:
         with:
           charts_dir: "charts"
           charts_url: "https://zkooli.github.io/charts"
-
+          helm_image: alpine/helm:3.11.1
+          
       - name: Commit and push helm-charts
         uses: EndBug/add-and-commit@v6
         with:
