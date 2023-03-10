@@ -10,6 +10,9 @@ jobs:
 
       - name: Checkout helm-charts
         uses: actions/checkout@v2
+        run: |
+          echo $GITHUB_WORKSPACE
+          echo ${{ github.workspace }}
         with:
           repository: zkooli/charts
           ref: refs/heads/gh-pages
