@@ -7,13 +7,13 @@ jobs:
   buildx:
     runs-on: ubuntu-latest
     steps:
-
-      - name: Checkout helm-charts
-      - uses: actions/checkout@v2
-      - run: |
+      - name: test
+        run: |
           echo $GITHUB_WORKSPACE
-          echo ${{ github.workspace }}
-      - with:
+      - name: Checkout helm-charts
+        uses: actions/checkout@v2
+
+        with:
           repository: zkooli/charts
           ref: refs/heads/gh-pages
           path: charts
