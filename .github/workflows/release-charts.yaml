@@ -16,6 +16,8 @@ jobs:
       CHART_REPO: zkooli/charts
       CHART_REPO_BRANCH: gh-pages
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
