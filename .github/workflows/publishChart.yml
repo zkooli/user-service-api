@@ -11,7 +11,7 @@ jobs:
       - name: Checkout helm-charts
         uses: actions/checkout@v2
         with:
-          repository: zkooli/user-service-api
+          repository: zkooli/charts
           ref: refs/heads/gh-pages
           path: charts
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -20,6 +20,7 @@ jobs:
         id: publish-chart
         uses: moikot/chart-publish-action@v1
         with:
+          chart: charts
           charts_dir: "charts/user-service-api-chart"
           charts_url: "https://zkooli.github.io/charts"
           helm_image: alpine/helm:3.11.1
