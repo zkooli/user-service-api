@@ -11,7 +11,7 @@ jobs:
       - name: Checkout helm-charts
         uses: actions/checkout@v2
         with:
-          repository: zkooli/charts
+          repository: zkooli/user-service-api/charts
           ref: refs/heads/gh-pages
           path: charts
           token: ${{ secrets.GITHUB_TOKEN }}
