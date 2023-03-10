@@ -9,11 +9,11 @@ jobs:
     steps:
 
       - name: Checkout helm-charts
-        uses: actions/checkout@v2
-        run: |
+      - uses: actions/checkout@v2
+      - run: |
           echo $GITHUB_WORKSPACE
           echo ${{ github.workspace }}
-        with:
+      - with:
           repository: zkooli/charts
           ref: refs/heads/gh-pages
           path: charts
