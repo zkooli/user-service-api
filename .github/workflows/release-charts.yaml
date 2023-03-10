@@ -2,8 +2,7 @@ name: Release Charts
 
 on:
   push:
-    branches:
-      - master
+
     paths:
       - charts/**
       - .github/workflows/release-charts.yaml
