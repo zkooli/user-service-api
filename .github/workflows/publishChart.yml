@@ -23,7 +23,7 @@ jobs:
         id: publish-chart
         uses: moikot/chart-publish-action@v1
         with:
-          chart: "user-service-api/charts/user-service-api-chart"
+          chart: "user-service-api-chart"
           charts_dir: "charts/user-service-api-chart"
           charts_url: "https://zkooli.github.io/charts"
           helm_image: alpine/helm:3.11.1
