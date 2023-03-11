@@ -70,16 +70,6 @@ jobs:
         uses: askcloudarchitech/chart-releaser-action@skip-packaging-option
         with:
           skip_packaging: true
-          charts_repo_url: https://zkooli.github.io/charts
 
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          
-      - name: Run update Charts repo
-        # switch back to helm/chart-releaser-action if this contribution is ever merged
-        uses: askcloudarchitech/chart-releaser-action@skip-packaging-option
-        with:
-          skip_packaging: true
-          charts_repo_url: https://zkooli.github.io/charts
-        env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}" 
