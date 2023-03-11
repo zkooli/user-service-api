@@ -32,15 +32,6 @@ jobs:
       - name: Install yq - portable yaml processor
         uses: mikefarah/yq@v4.30.5
 
-      - name: Collect charts
-        id: charts
-        run: |
-          set -e
-          find -L charts -mindepth 2 -maxdepth 2 -type f \( -name 'Chart.yaml' -o -name 'Chart.yml' \) -exec dirname "{}" \; \
-          | sort -u \
-          | sed -E 's/^/- /' \
-          | yq --no-colors --indent 0 --output-format json '.' \
-          | sed -E 's/^/charts=/' >> $GITHUB_OUTPUT
       - name: Install chart releaser
         run: |
           set -e
@@ -53,37 +44,6 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v3.4
 
-      - name: Helm Deps
-        run: |
-          set -ex
-          echo '${{ steps.charts.outputs.charts }}' \
-          | yq --indent 0 --no-colors --input-format json --unwrapScalar '.[]' \
-          | while read -r dir; do
-              helm dependency update $dir;
-              if [ -f "$dir/Chart.lock" ]; then
-                yq --indent 0 \
-                  '.dependencies | map(["helm", "repo", "add", .name, .repository] | join(" ")) | .[]' \
-                  "$dir/Chart.lock" \
-                | sh --;
-              fi
-            done
-      - name: Package charts
-        id: package
-        run: |
-          set -ex
-          PACKAGES=.cr-release-packages
-          echo '${{ steps.charts.outputs.charts }}' \
-          | yq --indent 0 --no-colors --input-format json --unwrapScalar '.[]' \
-          | xargs -d$'\n' cr package --package-path "$PACKAGES"
-          echo "dir=${PACKAGES}" >> $GITHUB_OUTPUT
-      - name: Upload packages
-        run: |
-          set -ex
-          git config --list
-          owner=$(cut -d '/' -f 1 <<< '${{ github.repository }}')
-          repo=$(cut -d '/' -f 2 <<< '${{ github.repository }}')
-          cr upload --commit '${{ github.sha }}' --git-repo "$repo" --owner "$owner" --token '${{ github.token }}' \
-            --package-path '${{ steps.package.outputs.dir }}' --skip-existing
       - name: Update charts index
         working-directory: .charts-repo
         run: |
