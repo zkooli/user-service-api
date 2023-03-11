@@ -17,7 +17,7 @@ jobs:
         with:
           repository: zkooli/charts
           ref: refs/heads/gh-pages
-          path: charts
+          path: .charts-repo
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish the Helm chart
