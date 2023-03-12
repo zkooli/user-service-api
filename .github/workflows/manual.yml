@@ -98,8 +98,8 @@ jobs:
         working-directory: .charts-repo
         run: |
           set -ex
-          git config --local user.name "$GITHUB_ACTOR"
-          git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
           mkdir -p .cr-index
           owner=$(cut -d '/' -f 1 <<< '${{ github.repository }}')
           repo=$(cut -d '/' -f 2 <<< '${{ github.repository }}')
