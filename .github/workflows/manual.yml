@@ -107,7 +107,6 @@ jobs:
             --package-path '../.cr-release-packages' \
             --index-path ./
           git commit -a -m "Add changes"
-          git push origin gh-pages
 
       - name: Push index helm charts changes
         uses: ad-m/github-push-action@master
