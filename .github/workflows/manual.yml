@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      repository-projects: write
+      #repository-projects: write
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -54,7 +54,7 @@ jobs:
         with:
           repository: zkooli/charts
           path: .charts-repo
-          token: ${{ secrets.GITHUB_TOKEN }}
+          #token: ${{ secrets.GITHUB_TOKEN }}
           ref: gh-pages
           fetch-depth: 0
           
