@@ -50,10 +50,10 @@ jobs:
         working-directory: .charts-repo
         run: |
           set -ex
+          mkdir -p .cr-index
           git config --local user.name "$GITHUB_ACTOR"
           git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
           owner=$(cut -d '/' -f 1 <<< '${{ github.repository }}')
           repo=$(cut -d '/' -f 2 <<< '${{ github.repository }}')
           cr index --git-repo "$repo" --owner "$owner" --pages-branch '${{ env.CHART_REPO_BRANCH }}' \
-            
-            --index-path . --push
+          --index-path .cr-index --push
