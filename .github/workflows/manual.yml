@@ -87,3 +87,4 @@ jobs:
         run: |
           set -ex
           helm repo index --url https://ziedkooli.github.io/user-service-api .
+          cat index.yaml
