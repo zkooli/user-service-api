@@ -109,3 +109,9 @@ jobs:
           git commit -a -m "Add changes"
           git push origin gh-pages
 
+      - name: Push index helm charts changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+		      #repository: zkooli/charts 
