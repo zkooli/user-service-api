@@ -99,18 +99,10 @@ jobs:
         working-directory: .charts-repo
         run: |
           set -ex
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "zkooli"
+          git config --local user.email "ziedkooli@gmail.com"
           owner=$(cut -d '/' -f 1 <<< '${{ github.repository }}')
           repo=$(cut -d '/' -f 2 <<< '${{ github.repository }}')
           cr index --git-repo "$repo" --owner "$owner" --pages-branch 'gh-pages' \
             --package-path '../.cr-release-packages' \
-            --index-path ./
-          git commit -a -m "Add changes"
-
-      - name: Push index helm charts changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
-          repository: zkooli/charts 
+            --index-path ./ --push
