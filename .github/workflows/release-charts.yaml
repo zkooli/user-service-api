@@ -57,3 +57,4 @@ jobs:
           repo=$(cut -d '/' -f 2 <<< '${{ github.repository }}')
           cr index --git-repo "$repo" --owner "$owner" --pages-branch '${{ env.CHART_REPO_BRANCH }}' \
           --index-path .cr-index --push
+          cat .cr-index/index.yaml
