@@ -51,10 +51,10 @@ jobs:
       - name: Checkout Helm chart repo
         uses: actions/checkout@v3
         with:
-          repository: ${{ env.CHART_REPO }}
+          repository: zkooli/charts
           path: .charts-repo
           token: ${{ secrets.GITHUB_TOKEN }}
-          ref: ${{ env.CHART_REPO_BRANCH }}
+          ref: gh-pages
           
       - name: Configure Git
         run: |
