@@ -44,10 +44,18 @@ jobs:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
+      
+      - name: Checkout Helm chart repo
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ env.CHART_REPO }}
+          path: .charts-repo
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ env.CHART_REPO_BRANCH }}
+          
       - name: Configure Git
         run: |
           git config user.name "$GITHUB_ACTOR"
