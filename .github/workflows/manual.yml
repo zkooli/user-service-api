@@ -81,3 +81,11 @@ jobs:
 
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          
+      - name: Update charts index
+        working-directory: .charts-repo
+        run: |
+          set -ex
+          cr index --git-repo "$repo" --owner "$owner" --pages-branch '${{ env.CHART_REPO_BRANCH }}' \
+            --package-path '../.cr-release-packages \
+            --index-path .cr-index --push
