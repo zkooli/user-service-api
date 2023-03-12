@@ -106,4 +106,4 @@ jobs:
           repo=$(cut -d '/' -f 2 <<< '${{ github.repository }}')
           cr index --git-repo "$repo" --owner "$owner" --pages-branch 'gh-pages' \
             --package-path '../.cr-release-packages' \
-            --index-path .cr-index --push
+            --index-path .cr-index   --remote 'gh-pages' --push
