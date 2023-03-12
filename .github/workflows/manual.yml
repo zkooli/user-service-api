@@ -61,6 +61,16 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
+      - name: Install chart releaser
+        run: |
+          set -e
+          arch="$(dpkg --print-architecture)"
+          curl -s https://api.github.com/repos/helm/chart-releaser/releases/latest \
+          | yq --indent 0 --no-colors --input-format json --unwrapScalar \
+            ".assets[] | select(.name | test("\""^chart-releaser_.+_linux_${arch}\.tar\.gz$"\"")) | .browser_download_url" \
+          | xargs curl -SsL \
+          | tar zxf - -C /usr/local/bin
+          
       - name: Install Helm
         uses: azure/setup-helm@v1
         with:
