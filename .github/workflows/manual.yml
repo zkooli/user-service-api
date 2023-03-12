@@ -107,10 +107,5 @@ jobs:
             --package-path '../.cr-release-packages' \
             --index-path ./
           git commit -a -m "Add changes"
-          
-      - name: Push index helm charts changes
-        #working-directory: .charts-repo
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
+          git push origin gh-pages
+
