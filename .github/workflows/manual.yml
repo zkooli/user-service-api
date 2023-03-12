@@ -54,7 +54,7 @@ jobs:
         with:
           repository: zkooli/charts
           path: .charts-repo
-          #token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           ref: gh-pages
           fetch-depth: 0
           
