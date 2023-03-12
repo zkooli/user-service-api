@@ -7,7 +7,6 @@ on:
     paths:
       - charts/**
       - .github/workflows/release-charts.yaml
-
   workflow_dispatch:
 
 jobs:
