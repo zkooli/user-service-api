@@ -55,7 +55,7 @@ jobs:
         with:
           repository: zkooli/charts
           path: .charts-repo
-          #token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           ref: gh-pages
           fetch-depth: 0
           
@@ -107,3 +107,11 @@ jobs:
           cr index --git-repo "$repo" --owner "$owner" --pages-branch 'gh-pages' \
             --package-path '../.cr-release-packages' \
             --index-path .cr-index 
+          git commit -a -m "Add changes"
+          
+      - name: Push index helm charts changes
+        #working-directory: .charts-repo
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
