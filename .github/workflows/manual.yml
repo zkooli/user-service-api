@@ -99,8 +99,6 @@ jobs:
         working-directory: .charts-repo
         run: |
           set -ex
-          git config --local user.name "zkooli"
-          git config --local user.email "ziedkooli@gmail.com"
           owner=$(cut -d '/' -f 1 <<< '${{ github.repository }}')
           repo=$(cut -d '/' -f 2 <<< '${{ github.repository }}')
           cr index --git-repo "$repo" --owner "$owner" --pages-branch 'gh-pages' \
