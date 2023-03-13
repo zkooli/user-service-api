@@ -53,7 +53,9 @@ jobs:
       - name: Checkout Helm chart repo
         uses: actions/checkout@v2
         with:
-          token: "${{ secrets.GH_PAT }}"
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          set-safe-directory: false
+          persist-credentials: false
           repository: zkooli/charts
           path: .charts-repo
           ref: gh-pages
@@ -105,7 +107,7 @@ jobs:
             --package-path '../.cr-release-packages' \
             --index-path ./  --push
         env:
-          CR_TOKEN: "${{ secrets.GH_PAT }}"
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           CR_SKIP_EXISTING: true
           CR_OWNER: zkooli
           CR_GIT_REPO: charts
