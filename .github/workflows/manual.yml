@@ -104,4 +104,9 @@ jobs:
           repo=$(cut -d '/' -f 2 <<< '${{ github.repository }}')
           cr index --git-repo "$repo" --owner "$owner" --pages-branch 'gh-pages' \
             --package-path '../.cr-release-packages' \
-            --index-path ./ --push  --token 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
+            --index-path ./ 
+      - name: Run chart-releaser
+        # switch back to helm/chart-releaser-action if this contribution is ever merged
+        uses: helm/chart-releaser-action@v1.5.0
+        with:
+          skip_packaging: true
