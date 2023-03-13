@@ -106,4 +106,4 @@ jobs:
             --package-path '../.cr-release-packages' \
             --index-path ./ --push
         env:
-          CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
+          CR_TOKEN: ${{ secrets.GH_PAT }}"
