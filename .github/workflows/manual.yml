@@ -106,3 +106,5 @@ jobs:
           cr index --git-repo "$repo" --owner "$owner" --pages-branch 'gh-pages' \
             --package-path '../.cr-release-packages' \
             --index-path ./ --push
+        env:
+          CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
