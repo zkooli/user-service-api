@@ -48,7 +48,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
       
       - name: Checkout Helm chart repo
@@ -56,7 +55,6 @@ jobs:
         with:
           repository: zkooli/charts
           path: .charts-repo
-          token: ${{ secrets.GITHUB_TOKEN }}
           ref: gh-pages
           fetch-depth: 0
           
