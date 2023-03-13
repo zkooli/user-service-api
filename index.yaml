@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   user-service-api-chart:
   - apiVersion: v2
+    appVersion: 0.0.68
+    created: "2023-03-13T14:55:40.789189363Z"
+    description: Chart for my user service
+    digest: 9b9a88f7d84a6395d040e1b2629c28b6206b5901f32ce1a72a0eb544bfdde045
+    name: user-service-api-chart
+    type: application
+    urls:
+    - https://github.com/zkooli/user-service-api/releases/download/user-service-api-chart-0.0.68/user-service-api-chart-0.0.68.tgz
+    version: 0.0.68
+  - apiVersion: v2
     appVersion: 0.0.67
     created: "2023-03-13T14:06:58.530028309Z"
     description: Chart for my user service
@@ -571,4 +581,4 @@ entries:
     urls:
     - https://github.com/zkooli/user-service-api/releases/download/user-service-api-chart-0.0.7/user-service-api-chart-0.0.7.tgz
     version: 0.0.7
-generated: "2023-03-13T14:06:58.53019961Z"
+generated: "2023-03-13T14:55:40.789435663Z"
