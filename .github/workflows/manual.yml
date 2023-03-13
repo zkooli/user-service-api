@@ -49,12 +49,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      
+          persist-credentials: false
+          
       - name: Checkout Helm chart repo
         uses: actions/checkout@v2
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
-          set-safe-directory: false
           persist-credentials: false
           repository: zkooli/charts
           path: .charts-repo
