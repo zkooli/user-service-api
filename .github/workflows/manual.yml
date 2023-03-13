@@ -104,6 +104,4 @@ jobs:
           repo=$(cut -d '/' -f 2 <<< '${{ github.repository }}')
           cr index --git-repo "$repo" --owner "$owner" --pages-branch 'gh-pages' \
             --package-path '../.cr-release-packages' \
-            --index-path ./ --push
-        env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+            --index-path ./ --push  --token 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
