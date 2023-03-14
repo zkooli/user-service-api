@@ -55,8 +55,7 @@ jobs:
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           repository: zkooli/charts
-          path: ../.charts-repo
-          ref: gh-pages
+          path: .charts-repo
           fetch-depth: 0
           
       - name: Configure Git
@@ -103,7 +102,7 @@ jobs:
           owner=$(cut -d '/' -f 1 <<< '${{ github.repository }}')
           repo=$(cut -d '/' -f 2 <<< '${{ github.repository }}')
           cr index --git-repo "$repo" --owner "$owner" --pages-branch 'gh-pages' \
-            --package-path '../.user-service-api/.cr-release-packages' \
+            --package-path '../.cr-release-packages' \
             --index-path ./  --push
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
