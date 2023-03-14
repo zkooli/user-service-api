@@ -81,6 +81,7 @@ jobs:
           version: v3.8.1
 
       - name: custom packaging
+        working-directory: .user-service-api
         run: |
           VERSION=${{github.ref_name}}
           rm -rf .cr-release-packages
@@ -103,7 +104,7 @@ jobs:
           owner=$(cut -d '/' -f 1 <<< '${{ github.repository }}')
           repo=$(cut -d '/' -f 2 <<< '${{ github.repository }}')
           cr index --git-repo "$repo" --owner "$owner" --pages-branch 'gh-pages' \
-            --package-path '../.cr-release-packages' \
+            --package-path '../.user-service-api/.cr-release-packages' \
             --index-path ./  --push
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
