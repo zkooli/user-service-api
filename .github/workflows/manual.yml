@@ -49,14 +49,13 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-          path: .user-service-api
           
       - name: Checkout Helm chart repo
         uses: actions/checkout@v2
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           repository: zkooli/charts
-          path: .charts-repo
+          path: ../.charts-repo
           ref: gh-pages
           fetch-depth: 0
           
@@ -81,7 +80,6 @@ jobs:
           version: v3.8.1
 
       - name: custom packaging
-        working-directory: .user-service-api
         run: |
           VERSION=${{github.ref_name}}
           rm -rf .cr-release-packages
@@ -94,7 +92,6 @@ jobs:
         uses: helm/chart-releaser-action@v1.5.0
         with:
           skip_packaging: true
-          charts_dir: .user-service-api
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
