@@ -88,6 +88,19 @@ jobs:
           mkdir -p .cr-release-packages
           helm package charts/user-service-api-chart --app-version=${VERSION:1} --version=${VERSION:1} --destination=.cr-release-packages
 
+
+      - name: Update charts index user
+        working-directory: .user-service-api
+        run: |
+          set -ex
+          owner=$(cut -d '/' -f 1 <<< '${{ github.repository }}')
+          repo=$(cut -d '/' -f 2 <<< '${{ github.repository }}')
+          cr index --git-repo "$repo" --owner "$owner" --pages-branch 'gh-pages' \
+            --package-path '.cr-release-packages' \
+            --index-path ./  --push
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
           
       - name: Update charts index
         working-directory: .charts-repo
