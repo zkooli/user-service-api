@@ -88,16 +88,13 @@ jobs:
           mkdir -p .cr-release-packages
           helm package charts/user-service-api-chart --app-version=${VERSION:1} --version=${VERSION:1} --destination=.cr-release-packages
 
-      - name: wher am i
-        run: |
-          cd .user-service-api
           
       - name: Run chart-releaser
         # switch back to helm/chart-releaser-action if this contribution is ever merged
         uses: helm/chart-releaser-action@v1.5.0
         with:
           skip_packaging: true
-
+          charts_dir: .user-service-api
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
