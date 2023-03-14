@@ -90,7 +90,8 @@ jobs:
 
       - name: wher am i
         run: |
-          pwd
+          cd .user-service-api
+          
       - name: Run chart-releaser
         # switch back to helm/chart-releaser-action if this contribution is ever merged
         uses: helm/chart-releaser-action@v1.5.0
