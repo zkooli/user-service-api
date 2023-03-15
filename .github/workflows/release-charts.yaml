@@ -21,13 +21,18 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Set up SSH
+        uses: pioug/la-cle@v1.1.0
+        with:
+          GH_SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          
       - name: Configure Git
         run: |
           git config --global user.name "$GITHUB_ACTOR"
           git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"    
       - name: test checkout
         run: |
-          git clone https://zkooli:emYyQUBnSXQ=@github.com/zkooli/charts.git
+          git clone git@github.com:zkooli/MyRepo.git
           cd charts
           date > generated.txt
           git add .
