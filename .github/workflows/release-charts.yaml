@@ -29,7 +29,7 @@ jobs:
         run: |
           git clone https://github.com/zkooli/charts.git
           cd charts
-          git remote -v
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN}}@github.com/zkooli/charts.git
           date > generated.txt
           git add .
           git commit -m "test"
