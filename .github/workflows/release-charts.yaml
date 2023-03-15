@@ -27,12 +27,9 @@ jobs:
           git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"    
       - name: test checkout
         run: |
-          PAT="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"
-          REPO_URL="https://github.com/zkooli/charts.git"
-          AUTH=$(echo -n ":$PAT" | openssl base64 | tr -d '\n')
-          git -c http.$REPO_URL.extraheader="Authorization: Basic $AUTH" clone $REPO_URL --no-checkout --branch gh-pages
-          
+          git clone https://github.com/zkooli/charts.git
           cd charts
+          git remote -v
           date > generated.txt
           git add .
           git commit -m "test"
