@@ -32,7 +32,7 @@ jobs:
           git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"    
       - name: test checkout
         run: |
-          git clone git@github.com:zkooli/MyRepo.git
+          git clone git@github.com:zkooli/charts.git
           cd charts
           date > generated.txt
           git add .
