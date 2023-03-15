@@ -30,7 +30,6 @@ jobs:
           git clone https://github.com/zkooli/charts.git
           
           cd charts
-          git remote set-url origin https://github.com/zkooli/charts.git
           date > generated.txt
           git add .
           git commit -m "test"
