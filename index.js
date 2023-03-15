@@ -27,7 +27,11 @@ app.use("/users", userRoutes);
 app.get("/test", async (req, res) => {
   let collection = db.collection("user");
   let results = await collection.find({}).limit(50).toArray();
-
+  const user = {
+    firstName: "Zied",
+    lastName: "KOOLI",
+  };
+  results.push(user);
   res.send(results).status(200);
 });
 
