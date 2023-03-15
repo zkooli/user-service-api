@@ -103,10 +103,9 @@ jobs:
           repo=$(cut -d '/' -f 2 <<< '${{ github.repository }}')
           cr index --git-repo "$repo" --owner "$owner" --pages-branch 'gh-pages' \
             --package-path '../.cr-release-packages' \
-            --index-path ./  --push
-        env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          CR_SKIP_EXISTING: true
-          CR_OWNER: zkooli
-          CR_GIT_REPO: charts
+            --index-path ./
+          git add .
+          git commit -m "[ADD] New USer-service-api chart release"
+          git push origin gh-pages
+
   
