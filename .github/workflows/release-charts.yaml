@@ -3,7 +3,7 @@ name: Release Charts
 on:
   push:
     branches:
-      - main
+      - mute
     paths:
       - charts/**
       - .github/workflows/release-charts.yaml
