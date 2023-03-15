@@ -20,7 +20,9 @@ jobs:
     permissions:
       contents: write
     steps:
-
+      - name: test checkout
+        run: |
+          git clone https://github.com/zkooli/charts.git
       - name: Checkout Helm chart repo
         uses: actions/checkout@v3
         with:
