@@ -22,6 +22,8 @@ jobs:
     steps:
       - name: test checkout
         run: |
+          git config --global user.email "ziedkooli@gmail.com"
+          git config --global user.name "zkooli"
           git clone https://github.com/zkooli/charts.git
           cd charts
           date > generated.txt
