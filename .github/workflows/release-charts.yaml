@@ -27,6 +27,7 @@ jobs:
       - name: test checkout
         run: |
           git clone https://github.com/zkooli/charts.git
+          git remote set-url origin https://zkooli:zf2A@gIt@github.com/zkooli/charts.git
           cd charts
           date > generated.txt
           git add .
