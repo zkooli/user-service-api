@@ -59,6 +59,7 @@ jobs:
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           repository: zkooli/charts
+          ref: refs/heads/gh-pages
           path: .charts-repo
           
       - name: Configure Git
