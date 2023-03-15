@@ -20,10 +20,12 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Configure Git
+        run: |
+          git config --global user.name "$GITHUB_ACTOR"
+          git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"    
       - name: test checkout
         run: |
-          git config --global user.email "ziedkooli@gmail.com"
-          git config --global user.name "zkooli"
           git clone https://github.com/zkooli/charts.git
           cd charts
           date > generated.txt
