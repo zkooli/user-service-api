@@ -42,26 +42,22 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      pull-requests: write
-      pages: write
-      packages: write
-      deployments: write
-      actions: write
-      repository-projects: write
     steps:
-      - name: Checkout
+      - name: Checkout current repository
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      
+      - name: Set up SSH
+        uses: pioug/la-cle@v1.1.0
+        with:
+          GH_SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           
       - name: Checkout Helm chart repo
-        uses: actions/checkout@v2
-        with:
-          token: "${{ secrets.GITHUB_TOKEN }}"
-          repository: zkooli/charts
-          ref: refs/heads/gh-pages
-          path: .charts-repo
-          
+        run: |
+          mkdir -p .charts-repo
+          cd .charts-repo
+          git clone git@github.com:zkooli/charts.git .
       - name: Configure Git
         run: |
           git config --global user.name "$GITHUB_ACTOR"
