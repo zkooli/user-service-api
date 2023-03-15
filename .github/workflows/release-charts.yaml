@@ -16,6 +16,7 @@ jobs:
       CHART_DIR: charts
       CHART_REPO: zkooli/charts
       CHART_REPO_BRANCH: gh-pages
+      token: ${{ secrets.GITHUB_TOKEN }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
